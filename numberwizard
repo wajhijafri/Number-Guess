@@ -1,0 +1,56 @@
+using UnityEngine;
+using System.Collections;
+
+public class NumberWizard : MonoBehaviour {
+
+	// Use this for initialization
+	int Max = 1000;
+	int Min = 1;
+	int Guess = 500;
+	void Start () {
+		StartGame();
+		}
+	void StartGame ()
+		 
+		{
+		Max = 1000;
+		Min = 1;
+		Guess = 500;
+		
+		print ("-------============----------");
+		print("Welcome To Number Wizard");
+		print("Pick a number in your head");
+	
+		print (" The Highest number you can choose is "  +Max );
+		print (" The Lowest number you can choose is "  +Min );
+		print(" Is the number higher or lower than" +Guess);
+		print ( " Up Arrow for Higher, Down for lower and Return Key for Equal ");
+		Max = Max +1;
+	}
+	void NextGuess () {	
+			Guess = ((Max + Min) /2);
+			print ("The number is higher or lower than " +Guess );
+			print ( "Up Arrow for Higher, Down for lower and Return Key for Equal ");
+			}
+
+	void Update () 
+		{
+		if (Input.GetKeyDown(KeyCode.UpArrow))
+			{ 
+			
+			Min = Guess;
+			NextGuess();
+			}
+			
+			else if(Input.GetKeyDown(KeyCode.DownArrow))
+			{	
+			Max = Guess;
+			NextGuess();
+			
+			}
+			else if(Input.GetKeyDown(KeyCode.Return))
+		{
+			print ("Yay ! I Won !");
+			StartGame();
+		}
+ 		}	
